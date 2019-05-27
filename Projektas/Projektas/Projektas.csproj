@@ -138,6 +138,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EventSpaceReviewController.cs" />
     <Compile Include="Controllers\FoodOrderController.cs" />
     <Compile Include="Controllers\FoodSupplierController.cs" />
     <Compile Include="Controllers\ReservationController.cs" />
@@ -276,6 +277,7 @@
     <Content Include="Views\FoodOrder\Create.cshtml" />
     <Content Include="Views\UserOrder\Cancel.cshtml" />
     <Content Include="Views\UserOrder\Edit.cshtml" />
+    <Content Include="Views\EventSpaceReview\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

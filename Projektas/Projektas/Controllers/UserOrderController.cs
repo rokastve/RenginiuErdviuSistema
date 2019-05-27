@@ -26,26 +26,9 @@ namespace Projektas.Controllers
             return View();
         }
 
-        // GET: UserOrder/Create
-        public ActionResult Create()
+        public ActionResult LeaveReview(string ID)
         {
-            return View();
-        }
-
-        // POST: UserOrder/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Create", "EventSpaceReview", new { id = ID });
         }
 
         // GET: UserOrder/Edit/5

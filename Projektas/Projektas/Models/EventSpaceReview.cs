@@ -20,7 +20,17 @@ namespace Projektas.Models
         public System.DateTime Date { get; set; }
         public int ReceivedSpace { get; set; }
         public string Creator { get; set; }
-    
+
+        public EventSpaceReview(string Creator)
+        {
+            this.Creator = Creator;
+        }
+
+        public EventSpaceReview()
+        {
+            this.Code = 1;
+        }
+
         public virtual Customer Customer { get; set; }
         public virtual EventSpace EventSpace { get; set; }
     }
