@@ -70,26 +70,28 @@ namespace Projektas.Controllers
             }
         }
 
-        // GET: UserOrder/Delete/5
-        public ActionResult Delete(int id)
+        // GET: UserOrder/Cancel
+        public ActionResult Cancel(int id)
         {
-            return View();
+            UserOrder userOrderModel = new UserOrder();
+            using (DBEntities db = new DBEntities())
+            {
+                userOrderModel = db.UserOrder.Where(x => x.Order_code == id).FirstOrDefault();
+            }
+            return View(userOrderModel);
         }
 
-        // POST: UserOrder/Delete/5
+        // POST: UserOrder/Cancel
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Cancel(int id, FormCollection collection)
         {
-            try
+            using (DBEntities db = new DBEntities())
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                UserOrder userOrderModel = db.UserOrder.Where(x => x.Order_code == id).FirstOrDefault();
+                db.UserOrder.Remove(userOrderModel);
+                db.SaveChanges();
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("UserOrderListView");
         }
     }
 }

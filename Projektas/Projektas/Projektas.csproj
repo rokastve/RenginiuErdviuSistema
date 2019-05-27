@@ -274,6 +274,7 @@
     <Content Include="Views\Reservation\Create.cshtml" />
     <Content Include="Views\UserOrder\UserOrderListView.cshtml" />
     <Content Include="Views\FoodOrder\Create.cshtml" />
+    <Content Include="Views\UserOrder\Cancel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
