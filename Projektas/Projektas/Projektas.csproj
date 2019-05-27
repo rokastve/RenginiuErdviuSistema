@@ -138,6 +138,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DiscountController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\RegisteredUserController.cs" />
@@ -259,6 +260,7 @@
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\RegisteredUser\UserList.cshtml" />
     <Content Include="Views\Message\Create.cshtml" />
+    <Content Include="Views\Discount\DiscountListView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
