@@ -19,7 +19,15 @@ namespace Projektas.Models
         public int Order_id { get; set; }
         public int UserOrder { get; set; }
         public string Supplier { get; set; }
-    
+        public FoodOrder(string Supplier)
+        {
+            this.Supplier = Supplier;
+        }
+
+        public FoodOrder()
+        {
+            this.Order_id = 1;
+        }
         public virtual UserOrder UserOrder1 { get; set; }
         public virtual FoodSupplier FoodSupplier { get; set; }
     }
