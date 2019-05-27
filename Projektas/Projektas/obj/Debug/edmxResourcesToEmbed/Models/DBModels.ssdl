@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjektasModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Administrator">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Phone_number" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Is_Blocked" Type="bool" Nullable="false" />
+    <Property Name="Rating" Type="int" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Discount">
+    <Key>
+      <PropertyRef Name="Discount_id" />
+    </Key>
+    <Property Name="Discount_amount" Type="double" Nullable="false" />
+    <Property Name="Start_date" Type="date" Nullable="false" />
+    <Property Name="End_date" Type="date" Nullable="false" />
+    <Property Name="Discount_id" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Equipment">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="int" Nullable="false" />
+    <Property Name="Model" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Rent_Price" Type="double" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Category" Type="int" Nullable="false" />
+    <Property Name="IncludedIn" Type="int" Nullable="false" />
+    <Property Name="Administrator" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EquipmentCategory">
+    <Key>
+      <PropertyRef Name="id_" />
+    </Key>
+    <Property Name="id_" Type="int" Nullable="false" />
+    <Property Name="name" Type="char" MaxLength="12" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventSpace">
+    <Key>
+      <PropertyRef Name="EventSpace_id" />
+    </Key>
+    <Property Name="EventSpace_id" Type="int" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Size" Type="double" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Price" Type="double" Nullable="false" />
+    <Property Name="Administator" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DiscountId" Type="int" Nullable="false" />
+    <Property Name="Worker" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventSpaceReview">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="int" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Rating" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="ReceivedSpace" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FoodOrder">
+    <Key>
+      <PropertyRef Name="Order_id" />
+    </Key>
+    <Property Name="Number_of_people" Type="int" Nullable="false" />
+    <Property Name="Order_text" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Order_id" Type="int" Nullable="false" />
+    <Property Name="UserOrder" Type="int" Nullable="false" />
+    <Property Name="Supplier" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FoodSupplier">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Administrator" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Message_ID" />
+    </Key>
+    <Property Name="Text" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Topic" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Message_ID" Type="int" Nullable="false" />
+    <Property Name="Sender" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Receiver" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RegisteredUser">
+    <Key>
+      <PropertyRef Name="Login_name" />
+    </Key>
+    <Property Name="Login_name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="Reserver" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ReservedSpace" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserOrder">
+    <Key>
+      <PropertyRef Name="Order_code" />
+    </Key>
+    <Property Name="Order_code" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Sum" Type="double" Nullable="false" />
+    <Property Name="is_Paid" Type="bool" Nullable="false" />
+    <Property Name="Reservation" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserReview">
+    <Key>
+      <PropertyRef Name="Review_id" />
+    </Key>
+    <Property Name="Review_id" Type="int" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="ReceivedCustomer" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Creator" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Worker">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Boss" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="fkc_Administator">
+    <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
+    <End Role="EventSpace" Type="Self.EventSpace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Administrator">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="EventSpace">
+        <PropertyRef Name="Administator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Administrator">
+    <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
+    <End Role="FoodSupplier" Type="Self.FoodSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Administrator">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="FoodSupplier">
+        <PropertyRef Name="Administrator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Administratorr">
+    <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Administrator">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Equipment">
+        <PropertyRef Name="Administrator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Boss">
+    <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
+    <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Administrator">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Worker">
+        <PropertyRef Name="Boss" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_category_id">
+    <End Role="EquipmentCategory" Type="Self.EquipmentCategory" Multiplicity="1" />
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EquipmentCategory">
+        <PropertyRef Name="id_" />
+      </Principal>
+      <Dependent Role="Equipment">
+        <PropertyRef Name="Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Creator">
+    <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+    <End Role="Discount" Type="Self.Discount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Discount">
+        <PropertyRef Name="Creator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Creatorr">
+    <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+    <End Role="UserReview" Type="Self.UserReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="UserReview">
+        <PropertyRef Name="Creator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Creatorrr">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="EventSpaceReview" Type="Self.EventSpaceReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="EventSpaceReview">
+        <PropertyRef Name="Creator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Discount">
+    <End Role="Discount" Type="Self.Discount" Multiplicity="1" />
+    <End Role="EventSpace" Type="Self.EventSpace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Discount">
+        <PropertyRef Name="Discount_id" />
+      </Principal>
+      <Dependent Role="EventSpace">
+        <PropertyRef Name="DiscountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_IncludedIn">
+    <End Role="UserOrder" Type="Self.UserOrder" Multiplicity="1" />
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserOrder">
+        <PropertyRef Name="Order_code" />
+      </Principal>
+      <Dependent Role="Equipment">
+        <PropertyRef Name="IncludedIn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Order">
+    <End Role="UserOrder" Type="Self.UserOrder" Multiplicity="1" />
+    <End Role="FoodOrder" Type="Self.FoodOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserOrder">
+        <PropertyRef Name="Order_code" />
+      </Principal>
+      <Dependent Role="FoodOrder">
+        <PropertyRef Name="UserOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_ReceivedCustomer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="UserReview" Type="Self.UserReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="UserReview">
+        <PropertyRef Name="ReceivedCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_ReceivedSpace">
+    <End Role="EventSpace" Type="Self.EventSpace" Multiplicity="1" />
+    <End Role="EventSpaceReview" Type="Self.EventSpaceReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventSpace">
+        <PropertyRef Name="EventSpace_id" />
+      </Principal>
+      <Dependent Role="EventSpaceReview">
+        <PropertyRef Name="ReceivedSpace" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Receiver">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Message" Type="Self.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="Receiver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Reservation">
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="1" />
+    <End Role="UserOrder" Type="Self.UserOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reservation">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="UserOrder">
+        <PropertyRef Name="Reservation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_ReservedSpace">
+    <End Role="EventSpace" Type="Self.EventSpace" Multiplicity="1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventSpace">
+        <PropertyRef Name="EventSpace_id" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="ReservedSpace" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Reserver">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="Reserver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Sender">
+    <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
+    <End Role="Message" Type="Self.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Administrator">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="Sender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Supplier">
+    <End Role="FoodSupplier" Type="Self.FoodSupplier" Multiplicity="1" />
+    <End Role="FoodOrder" Type="Self.FoodOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodSupplier">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="FoodOrder">
+        <PropertyRef Name="Supplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_User">
+    <End Role="RegisteredUser" Type="Self.RegisteredUser" Multiplicity="1" />
+    <End Role="Administrator" Type="Self.Administrator" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="RegisteredUser">
+        <PropertyRef Name="Login_name" />
+      </Principal>
+      <Dependent Role="Administrator">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Userr">
+    <End Role="RegisteredUser" Type="Self.RegisteredUser" Multiplicity="1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="RegisteredUser">
+        <PropertyRef Name="Login_name" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Userrr">
+    <End Role="RegisteredUser" Type="Self.RegisteredUser" Multiplicity="1" />
+    <End Role="Worker" Type="Self.Worker" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="RegisteredUser">
+        <PropertyRef Name="Login_name" />
+      </Principal>
+      <Dependent Role="Worker">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_Worker">
+    <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+    <End Role="EventSpace" Type="Self.EventSpace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="EventSpace">
+        <PropertyRef Name="Worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProjektasModelStoreContainer">
+    <EntitySet Name="Administrator" EntityType="Self.Administrator" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="Discount" EntityType="Self.Discount" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="EquipmentCategory" EntityType="Self.EquipmentCategory" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="EventSpace" EntityType="Self.EventSpace" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="EventSpaceReview" EntityType="Self.EventSpaceReview" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="FoodOrder" EntityType="Self.FoodOrder" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="FoodSupplier" EntityType="Self.FoodSupplier" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="Message" EntityType="Self.Message" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="RegisteredUser" EntityType="Self.RegisteredUser" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="UserOrder" EntityType="Self.UserOrder" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="UserReview" EntityType="Self.UserReview" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="Worker" EntityType="Self.Worker" Schema="projektas" store:Type="Tables" />
+    <AssociationSet Name="fkc_Administator" Association="Self.fkc_Administator">
+      <End Role="Administrator" EntitySet="Administrator" />
+      <End Role="EventSpace" EntitySet="EventSpace" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Administrator" Association="Self.fkc_Administrator">
+      <End Role="Administrator" EntitySet="Administrator" />
+      <End Role="FoodSupplier" EntitySet="FoodSupplier" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Administratorr" Association="Self.fkc_Administratorr">
+      <End Role="Administrator" EntitySet="Administrator" />
+      <End Role="Equipment" EntitySet="Equipment" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Boss" Association="Self.fkc_Boss">
+      <End Role="Administrator" EntitySet="Administrator" />
+      <End Role="Worker" EntitySet="Worker" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_category_id" Association="Self.fkc_category_id">
+      <End Role="EquipmentCategory" EntitySet="EquipmentCategory" />
+      <End Role="Equipment" EntitySet="Equipment" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Creator" Association="Self.fkc_Creator">
+      <End Role="Worker" EntitySet="Worker" />
+      <End Role="Discount" EntitySet="Discount" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Creatorr" Association="Self.fkc_Creatorr">
+      <End Role="Worker" EntitySet="Worker" />
+      <End Role="UserReview" EntitySet="UserReview" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Creatorrr" Association="Self.fkc_Creatorrr">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="EventSpaceReview" EntitySet="EventSpaceReview" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Discount" Association="Self.fkc_Discount">
+      <End Role="Discount" EntitySet="Discount" />
+      <End Role="EventSpace" EntitySet="EventSpace" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_IncludedIn" Association="Self.fkc_IncludedIn">
+      <End Role="UserOrder" EntitySet="UserOrder" />
+      <End Role="Equipment" EntitySet="Equipment" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Order" Association="Self.fkc_Order">
+      <End Role="UserOrder" EntitySet="UserOrder" />
+      <End Role="FoodOrder" EntitySet="FoodOrder" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_ReceivedCustomer" Association="Self.fkc_ReceivedCustomer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="UserReview" EntitySet="UserReview" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_ReceivedSpace" Association="Self.fkc_ReceivedSpace">
+      <End Role="EventSpace" EntitySet="EventSpace" />
+      <End Role="EventSpaceReview" EntitySet="EventSpaceReview" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Receiver" Association="Self.fkc_Receiver">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Message" EntitySet="Message" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Reservation" Association="Self.fkc_Reservation">
+      <End Role="Reservation" EntitySet="Reservation" />
+      <End Role="UserOrder" EntitySet="UserOrder" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_ReservedSpace" Association="Self.fkc_ReservedSpace">
+      <End Role="EventSpace" EntitySet="EventSpace" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Reserver" Association="Self.fkc_Reserver">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Sender" Association="Self.fkc_Sender">
+      <End Role="Administrator" EntitySet="Administrator" />
+      <End Role="Message" EntitySet="Message" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Supplier" Association="Self.fkc_Supplier">
+      <End Role="FoodSupplier" EntitySet="FoodSupplier" />
+      <End Role="FoodOrder" EntitySet="FoodOrder" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_User" Association="Self.fkc_User">
+      <End Role="RegisteredUser" EntitySet="RegisteredUser" />
+      <End Role="Administrator" EntitySet="Administrator" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Userr" Association="Self.fkc_Userr">
+      <End Role="RegisteredUser" EntitySet="RegisteredUser" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Userrr" Association="Self.fkc_Userrr">
+      <End Role="RegisteredUser" EntitySet="RegisteredUser" />
+      <End Role="Worker" EntitySet="Worker" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_Worker" Association="Self.fkc_Worker">
+      <End Role="Worker" EntitySet="Worker" />
+      <End Role="EventSpace" EntitySet="EventSpace" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

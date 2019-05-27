@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProjektasModelStoreContainer" CdmEntityContainer="DBEntities">
+    <EntitySetMapping Name="Administrator">
+      <EntityTypeMapping TypeName="ProjektasModel.Administrator">
+        <MappingFragment StoreEntitySet="Administrator">
+          <ScalarProperty Name="Phone_number" ColumnName="Phone_number" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer">
+      <EntityTypeMapping TypeName="ProjektasModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Is_Blocked" ColumnName="Is_Blocked" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Discount">
+      <EntityTypeMapping TypeName="ProjektasModel.Discount">
+        <MappingFragment StoreEntitySet="Discount">
+          <ScalarProperty Name="Discount_amount" ColumnName="Discount_amount" />
+          <ScalarProperty Name="Start_date" ColumnName="Start_date" />
+          <ScalarProperty Name="End_date" ColumnName="End_date" />
+          <ScalarProperty Name="Discount_id" ColumnName="Discount_id" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipment">
+      <EntityTypeMapping TypeName="ProjektasModel.Equipment">
+        <MappingFragment StoreEntitySet="Equipment">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Rent_Price" ColumnName="Rent_Price" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="IncludedIn" ColumnName="IncludedIn" />
+          <ScalarProperty Name="Administrator" ColumnName="Administrator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentCategory">
+      <EntityTypeMapping TypeName="ProjektasModel.EquipmentCategory">
+        <MappingFragment StoreEntitySet="EquipmentCategory">
+          <ScalarProperty Name="id_" ColumnName="id_" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventSpace">
+      <EntityTypeMapping TypeName="ProjektasModel.EventSpace">
+        <MappingFragment StoreEntitySet="EventSpace">
+          <ScalarProperty Name="EventSpace_id" ColumnName="EventSpace_id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Administator" ColumnName="Administator" />
+          <ScalarProperty Name="DiscountId" ColumnName="DiscountId" />
+          <ScalarProperty Name="Worker" ColumnName="Worker" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventSpaceReview">
+      <EntityTypeMapping TypeName="ProjektasModel.EventSpaceReview">
+        <MappingFragment StoreEntitySet="EventSpaceReview">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ReceivedSpace" ColumnName="ReceivedSpace" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoodOrder">
+      <EntityTypeMapping TypeName="ProjektasModel.FoodOrder">
+        <MappingFragment StoreEntitySet="FoodOrder">
+          <ScalarProperty Name="Number_of_people" ColumnName="Number_of_people" />
+          <ScalarProperty Name="Order_text" ColumnName="Order_text" />
+          <ScalarProperty Name="Order_id" ColumnName="Order_id" />
+          <ScalarProperty Name="UserOrder" ColumnName="UserOrder" />
+          <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoodSupplier">
+      <EntityTypeMapping TypeName="ProjektasModel.FoodSupplier">
+        <MappingFragment StoreEntitySet="FoodSupplier">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Administrator" ColumnName="Administrator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Message">
+      <EntityTypeMapping TypeName="ProjektasModel.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+          <ScalarProperty Name="Message_ID" ColumnName="Message_ID" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegisteredUser">
+      <EntityTypeMapping TypeName="ProjektasModel.RegisteredUser">
+        <MappingFragment StoreEntitySet="RegisteredUser">
+          <ScalarProperty Name="Login_name" ColumnName="Login_name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservation">
+      <EntityTypeMapping TypeName="ProjektasModel.Reservation">
+        <MappingFragment StoreEntitySet="Reservation">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Reserver" ColumnName="Reserver" />
+          <ScalarProperty Name="ReservedSpace" ColumnName="ReservedSpace" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserOrder">
+      <EntityTypeMapping TypeName="ProjektasModel.UserOrder">
+        <MappingFragment StoreEntitySet="UserOrder">
+          <ScalarProperty Name="Order_code" ColumnName="Order_code" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="is_Paid" ColumnName="is_Paid" />
+          <ScalarProperty Name="Reservation" ColumnName="Reservation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserReview">
+      <EntityTypeMapping TypeName="ProjektasModel.UserReview">
+        <MappingFragment StoreEntitySet="UserReview">
+          <ScalarProperty Name="Review_id" ColumnName="Review_id" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ReceivedCustomer" ColumnName="ReceivedCustomer" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Worker">
+      <EntityTypeMapping TypeName="ProjektasModel.Worker">
+        <MappingFragment StoreEntitySet="Worker">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Boss" ColumnName="Boss" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
