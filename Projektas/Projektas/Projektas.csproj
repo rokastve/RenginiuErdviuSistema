@@ -266,6 +266,7 @@
     <Content Include="Views\Space\EventSpaceList.cshtml" />
     <Content Include="Views\Discount\DiscountListView.cshtml" />
     <Content Include="Views\Reservation\ReservationList.cshtml" />
+    <Content Include="Views\Reservation\Cancel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
