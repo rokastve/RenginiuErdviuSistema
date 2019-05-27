@@ -19,5 +19,10 @@ namespace Projektas.Controllers
             }
             return View(foodSupplierList);
         }
+
+        public ActionResult Order(string ID)
+        {
+            return RedirectToAction("Create", "FoodOrder", new { id = ID });
+        }
     }
 }
