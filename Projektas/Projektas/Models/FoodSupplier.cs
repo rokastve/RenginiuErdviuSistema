@@ -14,17 +14,12 @@ namespace Projektas.Models
     
     public partial class FoodSupplier
     {
-        public FoodSupplier()
-        {
-            this.FoodOrder = new HashSet<FoodOrder>();
-        }
-    
         public string Name { get; set; }
         public string Description { get; set; }
         public string Address { get; set; }
         public string Administrator { get; set; }
     
         public virtual Administrator Administrator1 { get; set; }
-        public virtual ICollection<FoodOrder> FoodOrder { get; set; }
+        public virtual FoodOrder FoodOrder { get; set; }
     }
 }
