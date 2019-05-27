@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<Projektas.Models.EventSpace>
 
 @{
-    ViewBag.Title = "EventSpaceList";
+    ViewBag.Title = "Event Space List";
 }
 
-<h2>EventSpaceList</h2>
+<h2>Event Space List</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -65,9 +62,7 @@
             @Html.DisplayFor(modelItem => item.Worker)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Reserve", "ReserveSpace", new { id=item.EventSpace_id })
         </td>
     </tr>
 }

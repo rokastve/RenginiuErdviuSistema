@@ -19,6 +19,13 @@ namespace Projektas.Models
         public DateTime EndDate { get; set; }
         public string Reserver { get; set; }
         public int ReservedSpace { get; set; }
+        public Reservation()
+        {
+        }
+        public Reservation(int id)
+        {
+            this.ReservedSpace = id;
+        }
 
         public virtual Customer Customer { get; set; }
         public virtual EventSpace EventSpace { get; set; }

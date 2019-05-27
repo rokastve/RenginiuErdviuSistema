@@ -43,5 +43,25 @@ namespace Projektas.Controllers
             }
             return RedirectToAction("ReservationList");
         }
+        public ActionResult Create(int id)
+        {
+            return View(new Reservation(id));
+        }
+
+        // POST: Message/Create
+        [HttpPost]
+        public ActionResult Create(Reservation reservation)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                db.Reservation.Add(reservation);
+                db.SaveChanges();
+            }
+            return RedirectToAction("EventSpaceList", "Space");
+        }
+        public ActionResult Return()
+        {
+            return RedirectToAction("EventSpaceList", "Space");
+        }
     }
 }
