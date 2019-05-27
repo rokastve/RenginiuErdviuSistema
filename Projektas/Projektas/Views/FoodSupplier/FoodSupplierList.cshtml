@@ -4,7 +4,6 @@
     ViewBag.Title = "FoodSupplier List";
 }
 
-<!DOCTYPE html>
 
 <html>
 <head>
@@ -45,7 +44,7 @@
                     @Html.DisplayFor(modelItem => item.Administrator)
                 </td>
                 <td>
-                    @Html.ActionLink("Order", "Order", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Order Food", "Order", new { id = item.Name })
                 </td>
             </tr>
         }
