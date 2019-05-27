@@ -14,13 +14,14 @@ namespace Projektas.Controllers
             List<RegisteredUser> userList = new List<RegisteredUser>();
             using (DBEntities db = new DBEntities())
             {
+
                 userList = db.RegisteredUser.ToList<RegisteredUser>();
             }
                 return View(userList);
         }
         public ActionResult SendMessage(string ID)
         {
-            return RedirectToAction("Create", "Message", new { id = ID });
+            return RedirectToAction("Create", "Message", new {id = ID});
         }
     }
 }
