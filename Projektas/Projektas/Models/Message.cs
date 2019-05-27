@@ -20,6 +20,13 @@ namespace Projektas.Models
         public int Message_ID { get; set; }
         public string Sender { get; set; }
         public string Receiver { get; set; }
+        public Message(string Receiver)
+        {
+            this.Receiver = Receiver;
+        }
+        public Message()
+        {
+        }
     
         public virtual Administrator Administrator { get; set; }
         public virtual Customer Customer { get; set; }

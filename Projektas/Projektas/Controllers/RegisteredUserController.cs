@@ -18,5 +18,9 @@ namespace Projektas.Controllers
             }
                 return View(userList);
         }
+        public ActionResult SendMessage(string ID)
+        {
+            return RedirectToAction("Create", "Message", new { id = ID });
+        }
     }
 }
