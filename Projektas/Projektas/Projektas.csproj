@@ -265,10 +265,10 @@
     <Content Include="Views\Space\EventSpaceMapView.cshtml" />
     <Content Include="Views\Space\EventSpaceList.cshtml" />
     <Content Include="Views\Discount\DiscountListView.cshtml" />
+    <Content Include="Views\Reservation\ReservationList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Reservation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
