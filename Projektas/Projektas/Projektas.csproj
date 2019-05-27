@@ -255,8 +255,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Main\About.cshtml" />
-    <Content Include="Views\Main\Contact.cshtml" />
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\RegisteredUser\UserList.cshtml" />
   </ItemGroup>
