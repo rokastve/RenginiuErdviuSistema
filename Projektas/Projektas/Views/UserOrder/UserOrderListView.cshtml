@@ -46,7 +46,7 @@
                 @Html.DisplayFor(modelItem => item.Reservation)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.Order_code }) |
                 @Html.ActionLink("Leave a review", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Cancel", "Cancel", new { id = item.Order_code })
             </td>

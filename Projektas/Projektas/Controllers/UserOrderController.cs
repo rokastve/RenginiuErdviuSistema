@@ -51,23 +51,24 @@ namespace Projektas.Controllers
         // GET: UserOrder/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            UserOrder userOrderModel = new UserOrder();
+            using (DBEntities db = new DBEntities())
+            {
+                userOrderModel = db.UserOrder.Where(x => x.Order_code == id).FirstOrDefault();
+            }
+            return View(userOrderModel);
         }
 
         // POST: UserOrder/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(UserOrder userOrderModel)
         {
-            try
+            using (DBEntities db = new DBEntities())
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                db.Entry(userOrderModel).State = System.Data.EntityState.Modified;
+                db.SaveChanges();
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("UserOrderListView");
         }
 
         // GET: UserOrder/Cancel
