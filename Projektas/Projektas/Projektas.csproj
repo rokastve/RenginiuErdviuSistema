@@ -138,6 +138,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\SpaceController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\RegisteredUserController.cs" />
@@ -259,6 +260,8 @@
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\RegisteredUser\UserList.cshtml" />
     <Content Include="Views\Message\Create.cshtml" />
+    <Content Include="Views\Space\EventSpaceMapView.cshtml" />
+    <Content Include="Views\Space\EventSpaceList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
