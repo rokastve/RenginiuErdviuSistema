@@ -14,19 +14,14 @@ namespace Projektas.Models
     
     public partial class Reservation
     {
-        public Reservation()
-        {
-            this.UserOrder = new HashSet<UserOrder>();
-        }
-    
         public int Code { get; set; }
-        public System.DateTime StartDate { get; set; }
-        public System.DateTime EndDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public string Reserver { get; set; }
         public int ReservedSpace { get; set; }
-    
+
         public virtual Customer Customer { get; set; }
         public virtual EventSpace EventSpace { get; set; }
-        public virtual ICollection<UserOrder> UserOrder { get; set; }
+        public virtual UserOrder UserOrder { get; set; }
     }
 }
