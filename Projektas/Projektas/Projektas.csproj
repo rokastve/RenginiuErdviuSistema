@@ -273,10 +273,10 @@
     <Content Include="Views\FoodSupplier\FoodSupplierList.cshtml" />
     <Content Include="Views\Reservation\Create.cshtml" />
     <Content Include="Views\UserOrder\UserOrderListView.cshtml" />
+    <Content Include="Views\FoodOrder\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\FoodOrder\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
