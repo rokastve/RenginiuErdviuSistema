@@ -139,13 +139,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FoodSupplierController.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\SpaceController.cs" />
     <Compile Include="Controllers\DiscountController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\RegisteredUserController.cs" />
+    <Compile Include="Controllers\UserOrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -271,11 +271,10 @@
     <Content Include="Views\Reservation\Cancel.cshtml" />
     <Content Include="Views\FoodSupplier\FoodSupplierList.cshtml" />
     <Content Include="Views\Reservation\Create.cshtml" />
-    <Content Include="Views\Order\OrderListView.cshtml" />
+    <Content Include="Views\UserOrder\UserOrderListView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\UserOrder\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

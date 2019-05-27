@@ -7,26 +7,54 @@ using Projektas.Models;
 
 namespace Projektas.Controllers
 {
-    public class OrderController : Controller
+    public class UserOrderController : Controller
     {
-        // GET: Order
-        public ActionResult OrderListView()
+        // GET: UserOrder
+        public ActionResult UserOrderListView()
         {
-            List<UserOrder> OrderList = new List<UserOrder>();
+            List<UserOrder> UserOrderList = new List<UserOrder>();
             using (DBEntities db = new DBEntities())
             {
-                OrderList = db.UserOrder.ToList<UserOrder>();
+                UserOrderList = db.UserOrder.ToList<UserOrder>();
             }
-            return View(OrderList);
+            return View(UserOrderList);
         }
 
-        // GET: Order/Edit/5
+        // GET: UserOrder/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: UserOrder/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: UserOrder/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: UserOrder/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Order/Edit/5
+        // POST: UserOrder/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -42,13 +70,13 @@ namespace Projektas.Controllers
             }
         }
 
-        // GET: Order/Delete/5
+        // GET: UserOrder/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Order/Delete/5
+        // POST: UserOrder/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
