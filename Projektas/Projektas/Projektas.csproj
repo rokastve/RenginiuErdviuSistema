@@ -138,7 +138,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\SpaceController.cs" />
+=======
+    <Compile Include="Controllers\DiscountController.cs" />
+>>>>>>> 41096b8eee23f1cee88f9ae57c068b829a48e14e
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\RegisteredUserController.cs" />
@@ -260,8 +264,12 @@
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\RegisteredUser\UserList.cshtml" />
     <Content Include="Views\Message\Create.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Space\EventSpaceMapView.cshtml" />
     <Content Include="Views\Space\EventSpaceList.cshtml" />
+=======
+    <Content Include="Views\Discount\DiscountListView.cshtml" />
+>>>>>>> 41096b8eee23f1cee88f9ae57c068b829a48e14e
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

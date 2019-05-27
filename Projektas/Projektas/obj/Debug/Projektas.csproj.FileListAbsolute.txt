@@ -174,6 +174,7 @@ C:\Users\Rokas\Desktop\RenginiuProjektas\Projektas\Projektas\obj\Debug\Projektas
 C:\Users\Rokas\Desktop\RenginiuProjektas\Projektas\Projektas\obj\Debug\Projektas.csproj.CopyComplete
 C:\Users\Rokas\Desktop\RenginiuProjektas\Projektas\Projektas\obj\Debug\Projektas.dll
 C:\Users\Rokas\Desktop\RenginiuProjektas\Projektas\Projektas\obj\Debug\Projektas.pdb
+<<<<<<< HEAD
 C:\Users\Admin\Documents\GitHub\RenginiuErdviuSistema\Projektas\Projektas\bin\Projektas.dll.config
 C:\Users\Admin\Documents\GitHub\RenginiuErdviuSistema\Projektas\Projektas\bin\Projektas.dll
 C:\Users\Admin\Documents\GitHub\RenginiuErdviuSistema\Projektas\Projektas\bin\Projektas.pdb
@@ -260,3 +261,91 @@ C:\Users\Admin\Documents\GitHub\RenginiuErdviuSistema\Projektas\Projektas\obj\De
 C:\Users\Admin\Documents\GitHub\RenginiuErdviuSistema\Projektas\Projektas\obj\Debug\Projektas.csproj.CopyComplete
 C:\Users\Admin\Documents\GitHub\RenginiuErdviuSistema\Projektas\Projektas\obj\Debug\Projektas.dll
 C:\Users\Admin\Documents\GitHub\RenginiuErdviuSistema\Projektas\Projektas\obj\Debug\Projektas.pdb
+=======
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\Projektas.dll.config
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\Projektas.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\Projektas.pdb
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\csc.exe
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\csc.exe.config
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\csc.rsp
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\csi.exe
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\csi.exe.config
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\csi.rsp
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.AppContext.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Console.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.IO.Compression.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Security.Claims.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.ValueTuple.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\vbc.exe
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\vbc.exe.config
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\vbc.rsp
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\VBCSCompiler.exe
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\Antlr3.Runtime.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\EntityFramework.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\MySql.Data.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\MySql.Data.Entity.EF6.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\MySql.Web.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\Newtonsoft.Json.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\System.Web.Helpers.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\System.Web.Mvc.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\System.Web.Optimization.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\System.Web.Razor.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\System.Web.WebPages.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\System.Web.WebPages.Razor.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\WebGrease.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\WebMatrix.WebData.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\WebMatrix.Data.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\EntityFramework.xml
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\MySql.Data.xml
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\MySql.Data.Entity.EF6.xml
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\MySql.Web.xml
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\System.Web.Helpers.xml
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\System.Web.Mvc.xml
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\System.Web.Optimization.xml
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\System.Web.Razor.xml
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\System.Web.WebPages.xml
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\System.Web.WebPages.Razor.xml
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\Newtonsoft.Json.xml
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\Antlr3.Runtime.pdb
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\obj\Debug\Projektas.csprojAssemblyReference.cache
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\obj\Debug\Projektas.csproj.CoreCompileInputs.cache
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\obj\Debug\Projektas.csproj.CopyComplete
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\obj\Debug\Projektas.dll
+C:\Users\Kamilė Debilė\Source\Repos\RenginiuErdviuSistema\Projektas\Projektas\obj\Debug\Projektas.pdb
+>>>>>>> 41096b8eee23f1cee88f9ae57c068b829a48e14e

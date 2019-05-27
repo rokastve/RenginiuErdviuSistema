@@ -26,6 +26,7 @@ namespace Projektas.Models
         }
         public Message()
         {
+            this.Date = DateTime.Now;
         }
     
         public virtual Administrator Administrator { get; set; }

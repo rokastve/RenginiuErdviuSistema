@@ -40,7 +40,7 @@ namespace Projektas.Controllers
                 db.Message.Add(message);
                 db.SaveChanges();
             }
-            return RedirectToAction("UserList", "RegisterUser");
+            return RedirectToAction("UserList", "RegisteredUser");
         }
 
        
