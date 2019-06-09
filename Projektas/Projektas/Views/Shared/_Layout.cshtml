@@ -20,13 +20,27 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Main")</li>
-                    <li>@Html.ActionLink("Users", "UserList", "RegisteredUser")</li>
-                    <li>@Html.ActionLink("Discounts", "DiscountListView", "Discount")</li>
-                    <li>@Html.ActionLink("Reservations", "ReservationList", "Reservation")</li>
-                    <li>@Html.ActionLink("FoodSuppliers", "FoodSupplierList", "FoodSupplier")</li>
-                    <li>@Html.ActionLink("EventSpaces", "EventSpaceList", "Space")</li>
-                    <li>@Html.ActionLink("UserOrder", "UserOrderListView", "UserOrder")</li>
+                    @if (@Session["LoginName"].ToString() == "Admin")
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Main")</li>
+                        <li>@Html.ActionLink("Users", "UserList", "RegisteredUser")</li>
+                        <li>@Html.ActionLink("EventSpaces", "EventSpaceList", "Space")</li>
+                    }
+                    @if (@Session["LoginName"].ToString() == "Worker")
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Main")</li>
+                        <li>@Html.ActionLink("Discounts", "DiscountListView", "Discount")</li>
+                        <li>@Html.ActionLink("EventSpaces", "EventSpaceList", "Space")</li>
+
+                    }
+                    @if (@Session["LoginName"].ToString() != "Worker" && @Session["LoginName"].ToString() != "Admin")
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Main")</li>
+                        <li>@Html.ActionLink("Reservations", "ReservationList", "Reservation")</li>
+                        <li>@Html.ActionLink("FoodSuppliers", "FoodSupplierList", "FoodSupplier")</li>
+                        <li>@Html.ActionLink("EventSpaces", "EventSpaceList", "Space")</li>
+                        <li>@Html.ActionLink("UserOrder", "UserOrderListView", "UserOrder")</li>
+                    }
                 </ul>
             </div>
         </div>

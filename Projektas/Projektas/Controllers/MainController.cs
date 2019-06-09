@@ -14,6 +14,10 @@ namespace Projektas.Controllers
         public ActionResult Index()
         {
             Login model = new Login();
+            if (Session["LoginName"] == null)
+            {
+                Session["LoginName"] = "Admin";
+            }
 
             if (Session["LoginName"] != null)
             {
