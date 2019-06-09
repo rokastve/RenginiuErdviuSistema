@@ -14,8 +14,7 @@ namespace Projektas.Controllers
             List<RegisteredUser> userList = new List<RegisteredUser>();
             using (DBEntities db = new DBEntities())
             {
-
-                userList = db.RegisteredUser.ToList<RegisteredUser>();
+                userList = db.RegisteredUser.Where(w => db.Customer.Select(s => s.Username).Contains(w.Login_name)).ToList();
             }
             return View(userList);
         }
