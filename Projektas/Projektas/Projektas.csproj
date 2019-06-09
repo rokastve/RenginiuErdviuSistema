@@ -193,6 +193,7 @@
     <Compile Include="Models\FoodSupplier.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Message.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>

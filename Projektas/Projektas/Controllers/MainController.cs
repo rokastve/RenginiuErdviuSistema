@@ -3,21 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Projektas.Models;
 
 namespace Projektas.Controllers
 {
     public class MainController : Controller
     {
+
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            Login model = new Login();
+
+            if (Session["LoginName"] != null)
+            {
+                model.LoginName = (string)Session["LoginName"];
+            }
+            return View(model);
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult Index(Login model)
         {
-            ViewBag.Message = "Your application description page.";
+            string selectedLoginName = model.LoginName;
 
-            return View();
+            Session["LoginName"] = selectedLoginName;
+
+            return View(model);
         }
 
         public ActionResult Contact()

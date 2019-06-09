@@ -17,7 +17,7 @@ namespace Projektas.Controllers
 
                 userList = db.RegisteredUser.ToList<RegisteredUser>();
             }
-                return View(userList);
+            return View(userList);
         }
         public ActionResult SendMessage(string ID)
         {

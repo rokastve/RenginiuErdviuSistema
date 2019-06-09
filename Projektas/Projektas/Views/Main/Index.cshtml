@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Projektas.Models.Login
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -6,14 +8,10 @@
     <h1>Event Space System</h1>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2><b>Created by:</b></h2>
-            <ul>
-                <li>I</li>
-                <li>AM</li>
-                <li>SOO</li>
-                <li>DONE</li>
-            </ul>
-    </div>
-</div>
+
+@using (Html.BeginForm())
+{
+    @Html.DropDownListFor(model => Model.LoginName, Model.LoginNames)
+
+    <p><input type="submit" value="Submit" /></p>
+}
