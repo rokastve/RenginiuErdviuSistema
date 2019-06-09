@@ -23,25 +23,35 @@ namespace Projektas.Controllers
 
         public ActionResult Cancel()
         {
-            return RedirectToAction("UserOrderListView", "UserOrder");
+            return RedirectToAction("ReservationList", "Reservation");
         }
 
         // GET: EventSpaceReview/Create
-        public ActionResult Create(string id)
+        public ActionResult Create(int id, string logedInUser)
         {
-            return View(new EventSpaceReview(id));
+            return View(new EventSpaceReview(id, logedInUser));
         }
 
         // POST: EventSpaceReview/Create
         [HttpPost]
         public ActionResult Create(EventSpaceReview review)
         {
+            List<EventSpaceReview> eventSpaceReservationList = new List<EventSpaceReview>();
+            using (DBEntities db = new DBEntities())
+            {
+                eventSpaceReservationList = db.EventSpaceReview.ToList<EventSpaceReview>();
+            }
+            if (eventSpaceReservationList.Count == 0)
+                review.Code = 0;
+
+            if (eventSpaceReservationList.Count > 0)
+                review.Code = eventSpaceReservationList.Max(x => x.Code) + 1;
             using (DBEntities db = new DBEntities())
             {
                 db.EventSpaceReview.Add(review);
                 db.SaveChanges();
             }
-            return RedirectToAction("UserOrderListView", "UserOrder");
+            return RedirectToAction("ReservationList", "Reservation");
         }
 
     }

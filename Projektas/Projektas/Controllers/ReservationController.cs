@@ -25,6 +25,10 @@ namespace Projektas.Controllers
             }
             return View(userReservationList);
         }
+        public ActionResult LeaveReview(int ID, string LogedInUser)
+        {
+            return RedirectToAction("Create", "EventSpaceReview", new { id = ID, logedInUser = LogedInUser });
+        }
 
         // Get: Reservation/Cancel
         public ActionResult Cancel(int id)
@@ -66,7 +70,6 @@ namespace Projektas.Controllers
             }
             if (reservationList.Count >= 0)
                 reservation.Code = reservationList.Max(x => x.Code) + 1;
-            Response.Write(reservation.Code);
 
             using (DBEntities db = new DBEntities())
             {

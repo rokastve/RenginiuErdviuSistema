@@ -26,11 +26,6 @@ namespace Projektas.Controllers
             return View();
         }
 
-        public ActionResult LeaveReview(string ID)
-        {
-            return RedirectToAction("Create", "EventSpaceReview", new { id = ID });
-        }
-
         // GET: UserOrder/Edit/5
         public ActionResult Edit(int id)
         {

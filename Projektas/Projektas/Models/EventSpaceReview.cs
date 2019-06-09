@@ -21,14 +21,12 @@ namespace Projektas.Models
         public int ReceivedSpace { get; set; }
         public string Creator { get; set; }
 
-        public EventSpaceReview(string Creator)
+        public EventSpaceReview() { }
+        public EventSpaceReview(int id, string logedInUser)
         {
-            this.Creator = Creator;
-        }
-
-        public EventSpaceReview()
-        {
-            this.Code = 1;
+            this.ReceivedSpace = id;
+            this.Creator = logedInUser;
+            this.Date = DateTime.Now;
         }
 
         public virtual Customer Customer { get; set; }

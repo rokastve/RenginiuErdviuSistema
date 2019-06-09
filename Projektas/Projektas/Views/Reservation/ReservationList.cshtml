@@ -44,6 +44,7 @@
                 @Html.DisplayFor(modelItem => item.ReservedSpace)
             </td>
             <td>
+                @Html.ActionLink("Leave a Review", "LeaveReview", new { id = item.ReservedSpace, logedInUser = @Session["LoginName"].ToString() }) |
                 @Html.ActionLink("Cancel", "Cancel", new { id = item.Code })
             </td>
         </tr>
