@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DBModelsStoreContainer" CdmEntityContainer="DBEntites">
+  <EntityContainerMapping StorageEntityContainer="DBModelsStoreContainer" CdmEntityContainer="DBEntities">
     <EntitySetMapping Name="Administrator">
       <EntityTypeMapping TypeName="DBModels.Administrator">
         <MappingFragment StoreEntitySet="Administrator">
@@ -39,7 +39,6 @@
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Category" ColumnName="Category" />
-          <ScalarProperty Name="IncludedIn" ColumnName="IncludedIn" />
           <ScalarProperty Name="Administrator" ColumnName="Administrator" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -49,6 +48,15 @@
         <MappingFragment StoreEntitySet="EquipmentCategory">
           <ScalarProperty Name="id_" ColumnName="id_" />
           <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentOrder">
+      <EntityTypeMapping TypeName="DBModels.EquipmentOrder">
+        <MappingFragment StoreEntitySet="EquipmentOrder">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Equipment" ColumnName="Equipment" />
+          <ScalarProperty Name="UserOrder" ColumnName="UserOrder" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

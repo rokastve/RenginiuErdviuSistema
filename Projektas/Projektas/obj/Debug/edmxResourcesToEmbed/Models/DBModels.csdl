@@ -49,11 +49,10 @@
     <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Category" Type="Int32" Nullable="false" />
-    <Property Name="IncludedIn" Type="Int32" />
     <Property Name="Administrator" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Administrator1" Relationship="Self.fkc_Administratorr" FromRole="Equipment" ToRole="Administrator" />
     <NavigationProperty Name="EquipmentCategory" Relationship="Self.fkc_category_id" FromRole="Equipment" ToRole="EquipmentCategory" />
-    <NavigationProperty Name="UserOrder" Relationship="Self.fkc_IncludedIn" FromRole="Equipment" ToRole="UserOrder" />
+    <NavigationProperty Name="EquipmentOrder" Relationship="Self.fkc_Equipment" FromRole="Equipment" ToRole="EquipmentOrder" />
   </EntityType>
   <EntityType Name="EquipmentCategory">
     <Key>
@@ -62,6 +61,16 @@
     <Property Name="id_" Type="Int32" Nullable="false" />
     <Property Name="name" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Equipment" Relationship="Self.fkc_category_id" FromRole="EquipmentCategory" ToRole="Equipment" />
+  </EntityType>
+  <EntityType Name="EquipmentOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Equipment" Type="Int32" Nullable="false" />
+    <Property Name="UserOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Equipment1" Relationship="Self.fkc_Equipment" FromRole="EquipmentOrder" ToRole="Equipment" />
+    <NavigationProperty Name="UserOrder1" Relationship="Self.fkc_UserOrder" FromRole="EquipmentOrder" ToRole="UserOrder" />
   </EntityType>
   <EntityType Name="EventSpace">
     <Key>
@@ -73,7 +82,7 @@
     <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Price" Type="Double" Nullable="false" />
     <Property Name="Administator" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="DiscountId" Type="Int32" />
+    <Property Name="DiscountId" Type="Int32" Nullable="false" />
     <Property Name="Worker" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Administrator" Relationship="Self.fkc_Administator" FromRole="EventSpace" ToRole="Administrator" />
     <NavigationProperty Name="Discount" Relationship="Self.fkc_Discount" FromRole="EventSpace" ToRole="Discount" />
@@ -103,7 +112,7 @@
     <Property Name="Order_id" Type="Int32" Nullable="false" />
     <Property Name="UserOrder" Type="Int32" Nullable="false" />
     <Property Name="Supplier" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="UserOrder1" Relationship="Self.fkc_Order" FromRole="FoodOrder" ToRole="UserOrder" />
+    <NavigationProperty Name="Reservation" Relationship="Self.fkc_Order" FromRole="FoodOrder" ToRole="Reservation" />
     <NavigationProperty Name="FoodSupplier" Relationship="Self.fkc_Supplier" FromRole="FoodOrder" ToRole="FoodSupplier" />
   </EntityType>
   <EntityType Name="FoodSupplier">
@@ -124,7 +133,7 @@
     <Property Name="Text" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" />
     <Property Name="Topic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Message_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Message_ID" Type="Int32" Nullable="false" />
     <Property Name="Sender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Receiver" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Administrator" Relationship="Self.fkc_Sender" FromRole="Message" ToRole="Administrator" />
@@ -154,6 +163,7 @@
     <Property Name="ReservedSpace" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Customer" Relationship="Self.fkc_Reserver" FromRole="Reservation" ToRole="Customer" />
     <NavigationProperty Name="EventSpace" Relationship="Self.fkc_ReservedSpace" FromRole="Reservation" ToRole="EventSpace" />
+    <NavigationProperty Name="FoodOrder" Relationship="Self.fkc_Order" FromRole="Reservation" ToRole="FoodOrder" />
     <NavigationProperty Name="UserOrder" Relationship="Self.fkc_Reservation" FromRole="Reservation" ToRole="UserOrder" />
   </EntityType>
   <EntityType Name="UserOrder">
@@ -165,8 +175,7 @@
     <Property Name="Sum" Type="Double" Nullable="false" />
     <Property Name="is_Paid" Type="Boolean" Nullable="false" />
     <Property Name="Reservation" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Equipment" Relationship="Self.fkc_IncludedIn" FromRole="UserOrder" ToRole="Equipment" />
-    <NavigationProperty Name="FoodOrder" Relationship="Self.fkc_Order" FromRole="UserOrder" ToRole="FoodOrder" />
+    <NavigationProperty Name="EquipmentOrder" Relationship="Self.fkc_UserOrder" FromRole="UserOrder" ToRole="EquipmentOrder" />
     <NavigationProperty Name="Reservation1" Relationship="Self.fkc_Reservation" FromRole="UserOrder" ToRole="Reservation" />
   </EntityType>
   <EntityType Name="UserReview">
@@ -339,7 +348,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fkc_Discount">
-    <End Role="Discount" Type="Self.Discount" Multiplicity="0..1" />
+    <End Role="Discount" Type="Self.Discount" Multiplicity="1" />
     <End Role="EventSpace" Type="Self.EventSpace" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Discount">
@@ -362,15 +371,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fkc_IncludedIn">
-    <End Role="UserOrder" Type="Self.UserOrder" Multiplicity="0..1" />
-    <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+  <Association Name="fkc_Equipment">
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+    <End Role="EquipmentOrder" Type="Self.EquipmentOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipment">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="EquipmentOrder">
+        <PropertyRef Name="Equipment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkc_UserOrder">
+    <End Role="UserOrder" Type="Self.UserOrder" Multiplicity="1" />
+    <End Role="EquipmentOrder" Type="Self.EquipmentOrder" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="UserOrder">
         <PropertyRef Name="Order_code" />
       </Principal>
-      <Dependent Role="Equipment">
-        <PropertyRef Name="IncludedIn" />
+      <Dependent Role="EquipmentOrder">
+        <PropertyRef Name="UserOrder" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -411,11 +432,11 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fkc_Order">
-    <End Role="UserOrder" Type="Self.UserOrder" Multiplicity="1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="1" />
     <End Role="FoodOrder" Type="Self.FoodOrder" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="UserOrder">
-        <PropertyRef Name="Order_code" />
+      <Principal Role="Reservation">
+        <PropertyRef Name="Code" />
       </Principal>
       <Dependent Role="FoodOrder">
         <PropertyRef Name="UserOrder" />
@@ -470,12 +491,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DBEntites" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Administrator" EntityType="Self.Administrator" />
     <EntitySet Name="Customer" EntityType="Self.Customer" />
     <EntitySet Name="Discount" EntityType="Self.Discount" />
     <EntitySet Name="Equipment" EntityType="Self.Equipment" />
     <EntitySet Name="EquipmentCategory" EntityType="Self.EquipmentCategory" />
+    <EntitySet Name="EquipmentOrder" EntityType="Self.EquipmentOrder" />
     <EntitySet Name="EventSpace" EntityType="Self.EventSpace" />
     <EntitySet Name="EventSpaceReview" EntityType="Self.EventSpaceReview" />
     <EntitySet Name="FoodOrder" EntityType="Self.FoodOrder" />
@@ -542,9 +564,13 @@
       <End Role="EquipmentCategory" EntitySet="EquipmentCategory" />
       <End Role="Equipment" EntitySet="Equipment" />
     </AssociationSet>
-    <AssociationSet Name="fkc_IncludedIn" Association="Self.fkc_IncludedIn">
-      <End Role="UserOrder" EntitySet="UserOrder" />
+    <AssociationSet Name="fkc_Equipment" Association="Self.fkc_Equipment">
       <End Role="Equipment" EntitySet="Equipment" />
+      <End Role="EquipmentOrder" EntitySet="EquipmentOrder" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_UserOrder" Association="Self.fkc_UserOrder">
+      <End Role="UserOrder" EntitySet="UserOrder" />
+      <End Role="EquipmentOrder" EntitySet="EquipmentOrder" />
     </AssociationSet>
     <AssociationSet Name="fkc_ReceivedSpace" Association="Self.fkc_ReceivedSpace">
       <End Role="EventSpace" EntitySet="EventSpace" />
@@ -559,7 +585,7 @@
       <End Role="EventSpace" EntitySet="EventSpace" />
     </AssociationSet>
     <AssociationSet Name="fkc_Order" Association="Self.fkc_Order">
-      <End Role="UserOrder" EntitySet="UserOrder" />
+      <End Role="Reservation" EntitySet="Reservation" />
       <End Role="FoodOrder" EntitySet="FoodOrder" />
     </AssociationSet>
     <AssociationSet Name="fkc_Supplier" Association="Self.fkc_Supplier">

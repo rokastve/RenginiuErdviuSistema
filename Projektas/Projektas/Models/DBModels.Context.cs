@@ -30,6 +30,7 @@ namespace Projektas.Models
         public DbSet<Discount> Discount { get; set; }
         public DbSet<Equipment> Equipment { get; set; }
         public DbSet<EquipmentCategory> EquipmentCategory { get; set; }
+        public DbSet<EquipmentOrder> EquipmentOrder { get; set; }
         public DbSet<EventSpace> EventSpace { get; set; }
         public DbSet<EventSpaceReview> EventSpaceReview { get; set; }
         public DbSet<FoodOrder> FoodOrder { get; set; }

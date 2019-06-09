@@ -32,5 +32,6 @@ namespace Projektas.Models
         public virtual Customer Customer { get; set; }
         public virtual EventSpace EventSpace { get; set; }
         public virtual UserOrder UserOrder { get; set; }
+        public virtual FoodOrder FoodOrder { get; set; }
     }
 }

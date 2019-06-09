@@ -36,7 +36,6 @@
     <Property Name="Status" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Category" Type="int" Nullable="false" />
-    <Property Name="IncludedIn" Type="int" />
     <Property Name="Administrator" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="EquipmentCategory">
@@ -45,6 +44,14 @@
     </Key>
     <Property Name="id_" Type="int" Nullable="false" />
     <Property Name="name" Type="char" MaxLength="12" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EquipmentOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Equipment" Type="int" Nullable="false" />
+    <Property Name="UserOrder" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="EventSpace">
     <Key>
@@ -56,7 +63,7 @@
     <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Price" Type="double" Nullable="false" />
     <Property Name="Administator" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="DiscountId" Type="int" />
+    <Property Name="DiscountId" Type="int" Nullable="false" />
     <Property Name="Worker" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="EventSpaceReview">
@@ -96,7 +103,7 @@
     <Property Name="Text" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="Topic" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="Message_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message_ID" Type="int" Nullable="false" />
     <Property Name="Sender" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Receiver" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
@@ -245,7 +252,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fkc_Discount">
-    <End Role="Discount" Type="Self.Discount" Multiplicity="0..1" />
+    <End Role="Discount" Type="Self.Discount" Multiplicity="1" />
     <End Role="EventSpace" Type="Self.EventSpace" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Discount">
@@ -256,24 +263,24 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fkc_IncludedIn">
-    <End Role="UserOrder" Type="Self.UserOrder" Multiplicity="0..1" />
-    <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+  <Association Name="fkc_Equipment">
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+    <End Role="EquipmentOrder" Type="Self.EquipmentOrder" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="UserOrder">
-        <PropertyRef Name="Order_code" />
+      <Principal Role="Equipment">
+        <PropertyRef Name="Code" />
       </Principal>
-      <Dependent Role="Equipment">
-        <PropertyRef Name="IncludedIn" />
+      <Dependent Role="EquipmentOrder">
+        <PropertyRef Name="Equipment" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="fkc_Order">
-    <End Role="UserOrder" Type="Self.UserOrder" Multiplicity="1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="1" />
     <End Role="FoodOrder" Type="Self.FoodOrder" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="UserOrder">
-        <PropertyRef Name="Order_code" />
+      <Principal Role="Reservation">
+        <PropertyRef Name="Code" />
       </Principal>
       <Dependent Role="FoodOrder">
         <PropertyRef Name="UserOrder" />
@@ -388,6 +395,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fkc_UserOrder">
+    <End Role="UserOrder" Type="Self.UserOrder" Multiplicity="1" />
+    <End Role="EquipmentOrder" Type="Self.EquipmentOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserOrder">
+        <PropertyRef Name="Order_code" />
+      </Principal>
+      <Dependent Role="EquipmentOrder">
+        <PropertyRef Name="UserOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fkc_Userr">
     <End Role="RegisteredUser" Type="Self.RegisteredUser" Multiplicity="1" />
     <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
@@ -430,6 +449,7 @@
     <EntitySet Name="Discount" EntityType="Self.Discount" Schema="projektas" store:Type="Tables" />
     <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="projektas" store:Type="Tables" />
     <EntitySet Name="EquipmentCategory" EntityType="Self.EquipmentCategory" Schema="projektas" store:Type="Tables" />
+    <EntitySet Name="EquipmentOrder" EntityType="Self.EquipmentOrder" Schema="projektas" store:Type="Tables" />
     <EntitySet Name="EventSpace" EntityType="Self.EventSpace" Schema="projektas" store:Type="Tables" />
     <EntitySet Name="EventSpaceReview" EntityType="Self.EventSpaceReview" Schema="projektas" store:Type="Tables" />
     <EntitySet Name="FoodOrder" EntityType="Self.FoodOrder" Schema="projektas" store:Type="Tables" />
@@ -476,12 +496,12 @@
       <End Role="Discount" EntitySet="Discount" />
       <End Role="EventSpace" EntitySet="EventSpace" />
     </AssociationSet>
-    <AssociationSet Name="fkc_IncludedIn" Association="Self.fkc_IncludedIn">
-      <End Role="UserOrder" EntitySet="UserOrder" />
+    <AssociationSet Name="fkc_Equipment" Association="Self.fkc_Equipment">
       <End Role="Equipment" EntitySet="Equipment" />
+      <End Role="EquipmentOrder" EntitySet="EquipmentOrder" />
     </AssociationSet>
     <AssociationSet Name="fkc_Order" Association="Self.fkc_Order">
-      <End Role="UserOrder" EntitySet="UserOrder" />
+      <End Role="Reservation" EntitySet="Reservation" />
       <End Role="FoodOrder" EntitySet="FoodOrder" />
     </AssociationSet>
     <AssociationSet Name="fkc_ReceivedCustomer" Association="Self.fkc_ReceivedCustomer">
@@ -519,6 +539,10 @@
     <AssociationSet Name="fkc_User" Association="Self.fkc_User">
       <End Role="RegisteredUser" EntitySet="RegisteredUser" />
       <End Role="Administrator" EntitySet="Administrator" />
+    </AssociationSet>
+    <AssociationSet Name="fkc_UserOrder" Association="Self.fkc_UserOrder">
+      <End Role="UserOrder" EntitySet="UserOrder" />
+      <End Role="EquipmentOrder" EntitySet="EquipmentOrder" />
     </AssociationSet>
     <AssociationSet Name="fkc_Userr" Association="Self.fkc_Userr">
       <End Role="RegisteredUser" EntitySet="RegisteredUser" />

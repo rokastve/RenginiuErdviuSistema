@@ -29,5 +29,6 @@ namespace Projektas.Models
         public virtual ICollection<Equipment> Equipment { get; set; }
         public virtual ICollection<FoodOrder> FoodOrder { get; set; }
         public virtual Reservation Reservation1 { get; set; }
+        public virtual EquipmentOrder EquipmentOrder { get; set; }
     }
 }
