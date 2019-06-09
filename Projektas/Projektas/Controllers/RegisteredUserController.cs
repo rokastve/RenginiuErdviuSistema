@@ -23,5 +23,9 @@ namespace Projektas.Controllers
         {
             return RedirectToAction("Create", "Message", new {id = ID});
         }
+        public ActionResult BlockUser(string ID)
+        {
+            return null;
+        }
     }
 }

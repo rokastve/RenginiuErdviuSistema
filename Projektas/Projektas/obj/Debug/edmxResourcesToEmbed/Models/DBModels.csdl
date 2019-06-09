@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ProjektasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="DBModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Administrator">
     <Key>
       <PropertyRef Name="Username" />
@@ -49,7 +49,7 @@
     <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Category" Type="Int32" Nullable="false" />
-    <Property Name="IncludedIn" Type="Int32" Nullable="false" />
+    <Property Name="IncludedIn" Type="Int32" />
     <Property Name="Administrator" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Administrator1" Relationship="Self.fkc_Administratorr" FromRole="Equipment" ToRole="Administrator" />
     <NavigationProperty Name="EquipmentCategory" Relationship="Self.fkc_category_id" FromRole="Equipment" ToRole="EquipmentCategory" />
@@ -73,7 +73,7 @@
     <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Price" Type="Double" Nullable="false" />
     <Property Name="Administator" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="DiscountId" Type="Int32" Nullable="false" />
+    <Property Name="DiscountId" Type="Int32" />
     <Property Name="Worker" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Administrator" Relationship="Self.fkc_Administator" FromRole="EventSpace" ToRole="Administrator" />
     <NavigationProperty Name="Discount" Relationship="Self.fkc_Discount" FromRole="EventSpace" ToRole="Discount" />
@@ -124,7 +124,7 @@
     <Property Name="Text" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" />
     <Property Name="Topic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Message_ID" Type="Int32" Nullable="false" />
+    <Property Name="Message_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Sender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Receiver" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Administrator" Relationship="Self.fkc_Sender" FromRole="Message" ToRole="Administrator" />
@@ -339,7 +339,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fkc_Discount">
-    <End Role="Discount" Type="Self.Discount" Multiplicity="1" />
+    <End Role="Discount" Type="Self.Discount" Multiplicity="0..1" />
     <End Role="EventSpace" Type="Self.EventSpace" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Discount">
@@ -363,7 +363,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fkc_IncludedIn">
-    <End Role="UserOrder" Type="Self.UserOrder" Multiplicity="1" />
+    <End Role="UserOrder" Type="Self.UserOrder" Multiplicity="0..1" />
     <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="UserOrder">
@@ -470,7 +470,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DBEntites" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Administrator" EntityType="Self.Administrator" />
     <EntitySet Name="Customer" EntityType="Self.Customer" />
     <EntitySet Name="Discount" EntityType="Self.Discount" />

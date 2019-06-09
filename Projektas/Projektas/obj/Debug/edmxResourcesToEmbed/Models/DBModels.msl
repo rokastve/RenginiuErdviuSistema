@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ProjektasModelStoreContainer" CdmEntityContainer="DBEntities">
+  <EntityContainerMapping StorageEntityContainer="DBModelsStoreContainer" CdmEntityContainer="DBEntites">
     <EntitySetMapping Name="Administrator">
-      <EntityTypeMapping TypeName="ProjektasModel.Administrator">
+      <EntityTypeMapping TypeName="DBModels.Administrator">
         <MappingFragment StoreEntitySet="Administrator">
           <ScalarProperty Name="Phone_number" ColumnName="Phone_number" />
           <ScalarProperty Name="Username" ColumnName="Username" />
@@ -10,7 +10,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Customer">
-      <EntityTypeMapping TypeName="ProjektasModel.Customer">
+      <EntityTypeMapping TypeName="DBModels.Customer">
         <MappingFragment StoreEntitySet="Customer">
           <ScalarProperty Name="Is_Blocked" ColumnName="Is_Blocked" />
           <ScalarProperty Name="Rating" ColumnName="Rating" />
@@ -19,7 +19,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Discount">
-      <EntityTypeMapping TypeName="ProjektasModel.Discount">
+      <EntityTypeMapping TypeName="DBModels.Discount">
         <MappingFragment StoreEntitySet="Discount">
           <ScalarProperty Name="Discount_amount" ColumnName="Discount_amount" />
           <ScalarProperty Name="Start_date" ColumnName="Start_date" />
@@ -30,7 +30,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Equipment">
-      <EntityTypeMapping TypeName="ProjektasModel.Equipment">
+      <EntityTypeMapping TypeName="DBModels.Equipment">
         <MappingFragment StoreEntitySet="Equipment">
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Model" ColumnName="Model" />
@@ -45,7 +45,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EquipmentCategory">
-      <EntityTypeMapping TypeName="ProjektasModel.EquipmentCategory">
+      <EntityTypeMapping TypeName="DBModels.EquipmentCategory">
         <MappingFragment StoreEntitySet="EquipmentCategory">
           <ScalarProperty Name="id_" ColumnName="id_" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -53,7 +53,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EventSpace">
-      <EntityTypeMapping TypeName="ProjektasModel.EventSpace">
+      <EntityTypeMapping TypeName="DBModels.EventSpace">
         <MappingFragment StoreEntitySet="EventSpace">
           <ScalarProperty Name="EventSpace_id" ColumnName="EventSpace_id" />
           <ScalarProperty Name="Address" ColumnName="Address" />
@@ -67,7 +67,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EventSpaceReview">
-      <EntityTypeMapping TypeName="ProjektasModel.EventSpaceReview">
+      <EntityTypeMapping TypeName="DBModels.EventSpaceReview">
         <MappingFragment StoreEntitySet="EventSpaceReview">
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Text" ColumnName="Text" />
@@ -79,7 +79,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="FoodOrder">
-      <EntityTypeMapping TypeName="ProjektasModel.FoodOrder">
+      <EntityTypeMapping TypeName="DBModels.FoodOrder">
         <MappingFragment StoreEntitySet="FoodOrder">
           <ScalarProperty Name="Number_of_people" ColumnName="Number_of_people" />
           <ScalarProperty Name="Order_text" ColumnName="Order_text" />
@@ -90,7 +90,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="FoodSupplier">
-      <EntityTypeMapping TypeName="ProjektasModel.FoodSupplier">
+      <EntityTypeMapping TypeName="DBModels.FoodSupplier">
         <MappingFragment StoreEntitySet="FoodSupplier">
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -100,7 +100,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Message">
-      <EntityTypeMapping TypeName="ProjektasModel.Message">
+      <EntityTypeMapping TypeName="DBModels.Message">
         <MappingFragment StoreEntitySet="Message">
           <ScalarProperty Name="Text" ColumnName="Text" />
           <ScalarProperty Name="Date" ColumnName="Date" />
@@ -112,7 +112,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="RegisteredUser">
-      <EntityTypeMapping TypeName="ProjektasModel.RegisteredUser">
+      <EntityTypeMapping TypeName="DBModels.RegisteredUser">
         <MappingFragment StoreEntitySet="RegisteredUser">
           <ScalarProperty Name="Login_name" ColumnName="Login_name" />
           <ScalarProperty Name="Password" ColumnName="Password" />
@@ -123,7 +123,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Reservation">
-      <EntityTypeMapping TypeName="ProjektasModel.Reservation">
+      <EntityTypeMapping TypeName="DBModels.Reservation">
         <MappingFragment StoreEntitySet="Reservation">
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
@@ -134,7 +134,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserOrder">
-      <EntityTypeMapping TypeName="ProjektasModel.UserOrder">
+      <EntityTypeMapping TypeName="DBModels.UserOrder">
         <MappingFragment StoreEntitySet="UserOrder">
           <ScalarProperty Name="Order_code" ColumnName="Order_code" />
           <ScalarProperty Name="Date" ColumnName="Date" />
@@ -145,7 +145,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserReview">
-      <EntityTypeMapping TypeName="ProjektasModel.UserReview">
+      <EntityTypeMapping TypeName="DBModels.UserReview">
         <MappingFragment StoreEntitySet="UserReview">
           <ScalarProperty Name="Review_id" ColumnName="Review_id" />
           <ScalarProperty Name="Text" ColumnName="Text" />
@@ -156,7 +156,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Worker">
-      <EntityTypeMapping TypeName="ProjektasModel.Worker">
+      <EntityTypeMapping TypeName="DBModels.Worker">
         <MappingFragment StoreEntitySet="Worker">
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="Username" ColumnName="Username" />

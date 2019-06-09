@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Projektas.Models.Equipment>
+
+<div style="font-family:Arial">
+
+    @using (Html.BeginForm("Add", "Equipment", FormMethod.Post))
+    {
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Name</th>
+                    <th>Model</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.EditorForModel()
+            </tbody>
+        </table>
+
+    <input type="submit" value="Test" />
+    }
+</div>

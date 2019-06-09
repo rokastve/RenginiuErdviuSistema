@@ -21,7 +21,7 @@ namespace Projektas.Models
         public string Status { get; set; }
         public string Description { get; set; }
         public int Category { get; set; }
-        public int IncludedIn { get; set; }
+        public Nullable<int> IncludedIn { get; set; }
         public string Administrator { get; set; }
     
         public virtual Administrator Administrator1 { get; set; }

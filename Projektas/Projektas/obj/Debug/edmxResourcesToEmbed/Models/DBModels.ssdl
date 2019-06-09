@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ProjektasModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="DBModels.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Administrator">
     <Key>
       <PropertyRef Name="Username" />
@@ -36,7 +36,7 @@
     <Property Name="Status" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Category" Type="int" Nullable="false" />
-    <Property Name="IncludedIn" Type="int" Nullable="false" />
+    <Property Name="IncludedIn" Type="int" />
     <Property Name="Administrator" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="EquipmentCategory">
@@ -56,7 +56,7 @@
     <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Price" Type="double" Nullable="false" />
     <Property Name="Administator" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="DiscountId" Type="int" Nullable="false" />
+    <Property Name="DiscountId" Type="int" />
     <Property Name="Worker" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="EventSpaceReview">
@@ -96,7 +96,7 @@
     <Property Name="Text" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="Topic" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="Message_ID" Type="int" Nullable="false" />
+    <Property Name="Message_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Sender" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Receiver" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
@@ -245,7 +245,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fkc_Discount">
-    <End Role="Discount" Type="Self.Discount" Multiplicity="1" />
+    <End Role="Discount" Type="Self.Discount" Multiplicity="0..1" />
     <End Role="EventSpace" Type="Self.EventSpace" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Discount">
@@ -257,7 +257,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fkc_IncludedIn">
-    <End Role="UserOrder" Type="Self.UserOrder" Multiplicity="1" />
+    <End Role="UserOrder" Type="Self.UserOrder" Multiplicity="0..1" />
     <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="UserOrder">
@@ -424,7 +424,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ProjektasModelStoreContainer">
+  <EntityContainer Name="DBModelsStoreContainer">
     <EntitySet Name="Administrator" EntityType="Self.Administrator" Schema="projektas" store:Type="Tables" />
     <EntitySet Name="Customer" EntityType="Self.Customer" Schema="projektas" store:Type="Tables" />
     <EntitySet Name="Discount" EntityType="Self.Discount" Schema="projektas" store:Type="Tables" />
