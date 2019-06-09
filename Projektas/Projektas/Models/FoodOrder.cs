@@ -26,7 +26,6 @@ namespace Projektas.Models
 
         public FoodOrder()
         {
-            this.Order_id = 1;
         }
         public virtual UserOrder UserOrder1 { get; set; }
         public virtual FoodSupplier FoodSupplier { get; set; }

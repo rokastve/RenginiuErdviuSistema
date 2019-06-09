@@ -1,71 +1,135 @@
-﻿
+﻿@model List<Projektas.Models.EventSpace>
 @{
     ViewBag.Title = "EventSpaceMapView";
 }
-
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false">
-</script>
-
-<h2>EventSpaceMapView</h2>
-
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-
-<script type="text/javascript">
-    var map; var infowindow;
-    function InitializeMap() {
-        var latlng = new google.maps.LatLng(40.756, -73.986);
-        var myOptions =
-        {
-            zoom: 8,
-            center: latlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        map = new google.maps.Map(document.getElementById("map"), myOptions);
+<style>
+    #map {
+        height: 500px;
     }
+</style>
+<br /><br />
+<div>
+    <select class="form-control" id="selectedValue" onchange="radiusPaint(this)">
+
+        <option value="">--Select Distance--</option>
+        <option value="5000">5km</option>
+        <option value="10000">10km</option>
+        <option value="15000">15km</option>
+        <option value="20000">20km</option>
+        <option value="25000">25km</option>
+        <option value="30000">30km</option>
 
 
-    function markicons() {
+    </select>
+    <select class="form-control" id="selectedDValue" onchange="addMarker(this)">
 
-        InitializeMap();
+        <option value="">--Select Event space--</option>
+        @foreach (var item in Model)
+        {
+            <option value="@item.Address">@item.Address</option>
+        }
 
-        var ltlng = [];
 
-        ltlng.push(new google.maps.LatLng(17.22, 78.28));
-        ltlng.push(new google.maps.LatLng(13.5, 79.2));
-        ltlng.push(new google.maps.LatLng(15.24, 77.16));
+    </select>
+    <input id="customerName" name="customerName" type="Text" />
+    <input value="Search location" type="Submit" onclick="SetPlace()" />
+</div>
+<br />
+<div id="map"></div>
 
-        map.setCenter(ltlng[0]);
-        for (var i = 0; i <= ltlng.length; i++) {
-            marker = new google.maps.Marker({
-                map: map,
-                position: ltlng[i]
-            });
+<script>
+    var map;
+      var geocoder;
+    var citycircle;
 
-            (function (i, marker) {
 
-                google.maps.event.addListener(marker, 'click', function () {
+    function initMap(zoomeLevel, latDb, longDb) {
 
-                    if (!infowindow) {
-                        infowindow = new google.maps.InfoWindow();
-                    }
 
-                    infowindow.setContent("Message" + i);
+        geocoder = new google.maps.Geocoder();
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: latDb != null ? latDb : 54.8982139, lng: longDb != null ? longDb : 23.9044817 },
+            zoom: zoomeLevel != null ? zoomeLevel : 13
+        });
 
-                    infowindow.open(map, marker);
-
-                });
-
-            })(i, marker);
-
+        @foreach(var item in Model)
+        {
+            @:addMarkers("@item.Address");
         }
 
     }
 
-    window.onload = markicons;
 
+
+
+    function addMarkers(address) {
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+
+
+            }
+        });
+    }
+
+    function radiusPaint(dist) {
+        address = "kaunas"
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (typeof citycircle !== 'undefined') {
+                    citycircle.setMap(null);
+                }
+                citycircle = new google.maps.Circle({
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: '#FF0000',
+                    fillOpacity: 0.35,
+                    map: map,
+                    center: map.getCenter(),
+                    radius: parseInt(dist.value)
+                });
+
+            }
+        });
+
+
+    }
+
+    function addMarker(addres) {
+        var address = addres.value;
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                var center = results[0].geometry.location
+                map.setCenter(center);
+            }
+        });
+
+
+        }
+
+    function SetPlace() {
+        var xx = document.getElementById("customerName").value;
+        var address = xx;
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                var center = results[0].geometry.location
+                map.setCenter(center);
+                if (typeof citycircle !== 'undefined') {
+                    citycircle.setMap(null);
+                }
+                var element = document.getElementById("selectedValue");
+                element.value = "";
+                var elementt = document.getElementById("selectedDValue");
+                elementt.value = "";
+            }
+        });
+
+
+    }
 </script>
-<div id="map"
-     style="width: 896px; top: 51px; left: 32px; height: 400px">
 
-</div>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfngDC8bB0Zunct854Hc1_Y7dSCRXLfN8&callback=initMap" async defer></script>

@@ -25,18 +25,13 @@ namespace Projektas.Controllers
         public ActionResult EventSpaceMapView()
         {
             List<EventSpace> eventSpaceList = new List<EventSpace>();
-            List<String> addresses = new List<String>();
-
             using (DBEntities db = new DBEntities())
             {
                 eventSpaceList = db.EventSpace.ToList<EventSpace>();
             }
-
-            for (int i = 0; i < eventSpaceList.Count(); i++)
-                addresses.Add(eventSpaceList[i].Address);
-
-            return View(addresses);
+            return View(eventSpaceList);
         }
+
         public ActionResult ReserveSpace(int ID, string LogedInUser)
         {
             return RedirectToAction("Create", "Reservation", new { id = ID, logedInUser = LogedInUser });
