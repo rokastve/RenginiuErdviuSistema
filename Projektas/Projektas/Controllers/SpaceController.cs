@@ -37,9 +37,9 @@ namespace Projektas.Controllers
 
             return View(addresses);
         }
-        public ActionResult ReserveSpace(int ID)
+        public ActionResult ReserveSpace(int ID, string LogedInUser)
         {
-            return RedirectToAction("Create", "Reservation", new { id = ID });
+            return RedirectToAction("Create", "Reservation", new { id = ID, logedInUser = LogedInUser });
         }
     }
 }

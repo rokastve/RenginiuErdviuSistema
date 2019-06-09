@@ -62,7 +62,7 @@
             @Html.DisplayFor(modelItem => item.Worker)
         </td>
         <td>
-            @Html.ActionLink("Reserve", "ReserveSpace", new { id=item.EventSpace_id })
+            @Html.ActionLink("Reserve", "ReserveSpace", new { id=item.EventSpace_id, logedInUser = @Session["LoginName"].ToString() })
         </td>
     </tr>
 }

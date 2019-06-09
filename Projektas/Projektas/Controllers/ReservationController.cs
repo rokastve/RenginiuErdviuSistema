@@ -13,11 +13,17 @@ namespace Projektas.Controllers
         public ActionResult ReservationList()
         {
             List<Reservation> reservationList = new List<Reservation>();
+            List<Reservation> userReservationList = new List<Reservation>();
             using (DBEntities db = new DBEntities())
             {
                 reservationList = db.Reservation.ToList<Reservation>();
+                for (int i = 0; i < reservationList.Count; i++)
+                {
+                    if (reservationList[i].Reserver == Session["LoginName"].ToString())
+                        userReservationList.Add(reservationList[i]);
+                }
             }
-            return View(reservationList);
+            return View(userReservationList);
         }
 
         // Get: Reservation/Cancel
@@ -43,15 +49,25 @@ namespace Projektas.Controllers
             }
             return RedirectToAction("ReservationList");
         }
-        public ActionResult Create(int id)
+
+        public ActionResult Create(int id, string logedInUser)
         {
-            return View(new Reservation(id));
+            return View(new Reservation(id, logedInUser));
         }
 
         // POST: Message/Create
         [HttpPost]
         public ActionResult Create(Reservation reservation)
         {
+            List<Reservation> reservationList = new List<Reservation>();
+            using (DBEntities db = new DBEntities())
+            {
+                reservationList = db.Reservation.ToList<Reservation>();
+            }
+            if (reservationList.Count >= 0)
+                reservation.Code = reservationList.Max(x => x.Code) + 1;
+            Response.Write(reservation.Code);
+
             using (DBEntities db = new DBEntities())
             {
                 db.Reservation.Add(reservation);

@@ -14,6 +14,7 @@ namespace Projektas.Models
     
     public partial class Reservation
     {
+
         public int Code { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
@@ -22,9 +23,10 @@ namespace Projektas.Models
         public Reservation()
         {
         }
-        public Reservation(int id)
+        public Reservation(int id, string logedInUser)
         {
             this.ReservedSpace = id;
+            this.Reserver = logedInUser;
         }
 
         public virtual Customer Customer { get; set; }
