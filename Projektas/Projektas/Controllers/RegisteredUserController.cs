@@ -15,8 +15,9 @@ namespace Projektas.Controllers
             using (DBEntities db = new DBEntities())
             {
                 userList = db.RegisteredUser.Where(w => db.Customer.Select(s => s.Username).Contains(w.Login_name)).ToList();
+                return View(userList);
             }
-            return View(userList);
+            
         }
         public ActionResult SendMessage(string ID)
         {
