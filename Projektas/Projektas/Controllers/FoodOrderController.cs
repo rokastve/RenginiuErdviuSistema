@@ -97,5 +97,19 @@ namespace Projektas.Controllers
 
             return index;
         }
+
+        public void Remove(int id)
+        {
+            List<FoodOrder> listas = new List<FoodOrder>();
+            using (DBEntities db = new DBEntities())
+            {
+                listas = db.FoodOrder.Where(w => w.UserOrder.Equals(id)).ToList();
+                foreach (FoodOrder order in listas)
+                {
+                    db.FoodOrder.Remove(order);
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }

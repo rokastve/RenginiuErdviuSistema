@@ -95,10 +95,28 @@ namespace Projektas.Controllers
             using (DBEntities db = new DBEntities())
             {
                 UserOrder userOrderModel = db.UserOrder.Where(x => x.Order_code == id).FirstOrDefault();
+                EquipmentOrderController EOC = new EquipmentOrderController();
+                FoodOrderController FOC = new FoodOrderController();
+                EOC.Remove(userOrderModel.Order_code);
+                FOC.Remove(userOrderModel.Order_code);
                 db.UserOrder.Remove(userOrderModel);
                 db.SaveChanges();
             }
             return RedirectToAction("UserOrderListView");
+        }
+        public void Remove(int id)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                
+                UserOrder userOrderModel = db.UserOrder.Where(x => x.Reservation == id).FirstOrDefault();
+                EquipmentOrderController EOC = new EquipmentOrderController();
+                FoodOrderController FOC = new FoodOrderController();
+                EOC.Remove(userOrderModel.Order_code);
+                FOC.Remove(userOrderModel.Order_code);
+                db.UserOrder.Remove(userOrderModel);
+                db.SaveChanges();
+            }
         }
     }
 }

@@ -46,7 +46,8 @@ namespace Projektas.Controllers
             using (DBEntities db = new DBEntities())
             {
                 Reservation reservationModel = db.Reservation.Where(x => x.Code == id).FirstOrDefault();
-                
+                UserOrderController UOC = new UserOrderController();
+                UOC.Remove(id);
                 db.Reservation.Remove(reservationModel);
                 db.SaveChanges();
             }

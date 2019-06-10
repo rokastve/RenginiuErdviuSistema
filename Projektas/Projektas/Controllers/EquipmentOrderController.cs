@@ -16,7 +16,7 @@ namespace Projektas.Controllers
             foreach (Equipment eq in things)
             {
                 int code = 0;
-                
+
                 List<UserOrder> UserOrderList = new List<UserOrder>();
                 using (DBEntities db = new DBEntities())
                 {
@@ -37,5 +37,19 @@ namespace Projektas.Controllers
             }
             return RedirectToAction("Details", "Reservation", new { id = idret });
         }
+        public void Remove(int id)
+        {
+            List<EquipmentOrder> listas = new List<EquipmentOrder>();
+            using (DBEntities db = new DBEntities())
+            {
+                listas = db.EquipmentOrder.Where(w => w.UserOrder.Equals(id)).ToList();
+                foreach(EquipmentOrder order in listas)
+                {
+                    db.EquipmentOrder.Remove(order);
+                    db.SaveChanges();
+                }
+            }
         }
     }
+    
+}
