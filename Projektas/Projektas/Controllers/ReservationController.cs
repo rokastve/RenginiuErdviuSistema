@@ -68,7 +68,9 @@ namespace Projektas.Controllers
             {
                 reservationList = db.Reservation.ToList<Reservation>();
             }
-            if (reservationList.Count >= 0)
+            if (reservationList.Count == 0)
+                reservation.Code = 0;
+            if (reservationList.Count > 0)
                 reservation.Code = reservationList.Max(x => x.Code) + 1;
 
             using (DBEntities db = new DBEntities())

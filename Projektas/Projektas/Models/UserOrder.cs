@@ -19,6 +19,16 @@ namespace Projektas.Models
             this.Equipment = new HashSet<Equipment>();
             this.FoodOrder = new HashSet<FoodOrder>();
         }
+
+        public UserOrder(int orderCode, int reservationId)
+        {
+            Random rnd = new Random();
+            this.Date = DateTime.Now;
+            this.is_Paid = false;
+            this.Sum = rnd.Next(100, 201);
+            this.Order_code = orderCode;
+            this.Reservation = reservationId;
+        }
     
         public int Order_code { get; set; }
         public System.DateTime Date { get; set; }

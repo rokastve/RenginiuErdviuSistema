@@ -20,6 +20,17 @@ namespace Projektas.Controllers
             return View(UserOrderList);
         }
 
+        // GET: UserOrder/Create
+        public void CreateFromFoodOrder(int userOrderId, DataView dw)
+        {
+            UserOrder autoCreated = new UserOrder(userOrderId, dw.model.UserOrder);
+            using (DBEntities db = new DBEntities())
+            {
+                db.UserOrder.Add(autoCreated);
+                db.SaveChanges();
+            }
+        }
+
         // GET: UserOrder/Details/5
         public ActionResult Details(int id)
         {
@@ -29,12 +40,29 @@ namespace Projektas.Controllers
         // GET: UserOrder/Edit/5
         public ActionResult Edit(int id)
         {
-            UserOrder userOrderModel = new UserOrder();
+            DataView dView = new DataView();
+            List<SelectListItem> items = new List<SelectListItem>();
+            List<Reservation> reservationList = new List<Reservation>();
             using (DBEntities db = new DBEntities())
             {
-                userOrderModel = db.UserOrder.Where(x => x.Order_code == id).FirstOrDefault();
+                reservationList = db.Reservation.ToList<Reservation>();
+                for (int i = 0; i < reservationList.Count; i++)
+                {
+                    if (reservationList[i].Reserver == Session["LoginName"].ToString())
+                    {
+                        dView.userReservationList.Add(reservationList[i]);
+                        items.Add(new SelectListItem { Text = reservationList[i].Code.ToString(), Value = reservationList[i].Code.ToString() });
+                    }
+                }
             }
-            return View(userOrderModel);
+            dView.reservationIds = new SelectList(items, "Value", "Text");
+
+            using (DBEntities db = new DBEntities())
+            {
+                dView.userOrderModel = db.UserOrder.Where(x => x.Order_code == id).FirstOrDefault();
+            }
+            
+            return View(dView);
         }
 
         // POST: UserOrder/Edit/5
