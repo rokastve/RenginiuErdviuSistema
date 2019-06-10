@@ -17,14 +17,6 @@ namespace Projektas.Models
         public UserOrder()
         {
         }
-        public UserOrder(int code, int res)
-        {
-            this.Order_code = code;
-            this.Date = DateTime.Now;
-            this.Sum = 55;
-            this.is_Paid = false;
-            this.Reservation = res;
-        }
 
         public UserOrder(int orderCode, int reservationId)
         {
