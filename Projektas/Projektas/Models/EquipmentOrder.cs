@@ -12,23 +12,22 @@ namespace Projektas.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class FoodOrder
+    public partial class EquipmentOrder
     {
-        public int Number_of_people { get; set; }
-        public string Order_text { get; set; }
-        public int Order_id { get; set; }
+        public int Id { get; set; }
+        public int Equipment { get; set; }
         public int UserOrder { get; set; }
-        public string Supplier { get; set; }
-        public FoodOrder(string Supplier)
-        {
-            this.Supplier = Supplier;
-        }
 
-        public FoodOrder()
+        public EquipmentOrder()
         {
         }
+        public EquipmentOrder(int eq, int ur)
+        {
+            this.Equipment = eq;
+            this.UserOrder = ur;
+        }
+    
+        public virtual Equipment Equipment1 { get; set; }
         public virtual UserOrder UserOrder1 { get; set; }
-        public virtual FoodSupplier FoodSupplier { get; set; }
-        public virtual Reservation Reservation { get; set; }
     }
 }

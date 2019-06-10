@@ -84,5 +84,14 @@ namespace Projektas.Controllers
         {
             return RedirectToAction("EventSpaceList", "Space");
         }
+        public ActionResult Details(int? id)
+        {
+            Reservation reservationModel = new Reservation();
+            using (DBEntities db = new DBEntities())
+            {
+                reservationModel = db.Reservation.Where(x => x.Code == id).FirstOrDefault();
+            }
+            return View(reservationModel);
+        }
     }
 }

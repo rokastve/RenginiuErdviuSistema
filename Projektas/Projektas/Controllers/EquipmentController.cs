@@ -10,8 +10,9 @@ namespace Projektas.Controllers
     public class EquipmentController : Controller
     {
         // GET: Equipment
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
+            TempData["Id"] = id;
             List<Equipment> listEq = new List<Equipment>();
             using (DBEntities db = new DBEntities())
             {
@@ -28,10 +29,10 @@ namespace Projektas.Controllers
             using (DBEntities db = new DBEntities())
             {
                 selected = db.Equipment.Where(x => equipmentIdToAdd.Contains(x.Code)).ToList<Equipment>();
+                TempData["Things"] = selected;
             }
-            //Nepaduodamas listas 
-            return RedirectToAction("AddEquipment", "UserOrder", new {});
-
+            int idret = (int)TempData["Id"];
+            return RedirectToAction("Add", "EquipmentOrder", new  {id = idret });
         }
     }
 }
