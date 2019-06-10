@@ -26,21 +26,35 @@ namespace Projektas.Controllers
         }
 
         // GET: Message/Create
-        public ActionResult Create(string id)
+        public ActionResult Create(string id, string logedInUser)
         {
-             return View(new Message(id));
+             return View(new Message(id, logedInUser));
         }
 
         // POST: Message/Create
         [HttpPost]
         public ActionResult Create(Message message)
         {
+            List<Message> messageList = new List<Message>();
             using (DBEntities db = new DBEntities())
             {
-                db.Message.Add(message);
-                db.SaveChanges();
+                messageList = db.Message.ToList<Message>();
             }
-            return RedirectToAction("UserList", "RegisteredUser");
+            if (messageList.Count == 0)
+                message.Message_ID = 0;
+            if (messageList.Count > 0)
+                message.Message_ID = messageList.Max(x => x.Message_ID) + 1;
+
+            if (ModelState.IsValid)
+            {
+                using (DBEntities db = new DBEntities())
+                {
+                    db.Message.Add(message);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("UserList", "RegisteredUser");
+            }
+            return View(message);
         }
 
        

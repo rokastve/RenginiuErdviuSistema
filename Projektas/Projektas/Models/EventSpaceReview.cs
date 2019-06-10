@@ -11,11 +11,15 @@ namespace Projektas.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class EventSpaceReview
     {
         public int Code { get; set; }
+        [Required(ErrorMessage = "Text Required")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Text { get; set; }
+        [Range(0, int.MaxValue, ErrorMessage = "Only positive rating allowed")]
         public int Rating { get; set; }
         public System.DateTime Date { get; set; }
         public int ReceivedSpace { get; set; }

@@ -11,10 +11,14 @@ namespace Projektas.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class FoodOrder
     {
+        [Range(1, int.MaxValue, ErrorMessage = "Only positive, greater than 0 value allowed")]
         public int Number_of_people { get; set; }
+        [Required(ErrorMessage = "Text Required")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Order_text { get; set; }
         public int Order_id { get; set; }
         public int UserOrder { get; set; }

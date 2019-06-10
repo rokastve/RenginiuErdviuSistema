@@ -69,12 +69,17 @@ namespace Projektas.Controllers
 
             temp.CreateFromFoodOrder(userOrderId, dw);
             dw.model.Order_id = GetIndex();
+            if (ModelState.IsValid)
+            {
                 using (DBEntities db = new DBEntities())
                 {
                     db.FoodOrder.Add(dw.model);
                     db.SaveChanges();
                 }
-            return RedirectToAction("FoodSupplierList", "FoodSupplier");
+                return RedirectToAction("FoodSupplierList", "FoodSupplier");
+            }
+
+            return View(dw);
         }
 
         public int GetIndex()

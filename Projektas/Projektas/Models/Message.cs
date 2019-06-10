@@ -11,18 +11,24 @@ namespace Projektas.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Message
     {
+        [Required(ErrorMessage = "Text Required")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Text { get; set; }
         public System.DateTime Date { get; set; }
+        [Required(ErrorMessage = "Text Required")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Topic { get; set; }
         public int Message_ID { get; set; }
         public string Sender { get; set; }
         public string Receiver { get; set; }
-        public Message(string Receiver)
+        public Message(string id, string logedInUser)
         {
-            this.Receiver = Receiver;
+            this.Receiver = id;
+            this.Sender = logedInUser;
         }
         public Message()
         {

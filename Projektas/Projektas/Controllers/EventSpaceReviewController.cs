@@ -46,12 +46,16 @@ namespace Projektas.Controllers
 
             if (eventSpaceReservationList.Count > 0)
                 review.Code = eventSpaceReservationList.Max(x => x.Code) + 1;
-            using (DBEntities db = new DBEntities())
+            if (ModelState.IsValid)
             {
-                db.EventSpaceReview.Add(review);
-                db.SaveChanges();
+                using (DBEntities db = new DBEntities())
+                {
+                    db.EventSpaceReview.Add(review);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("ReservationList", "Reservation");
             }
-            return RedirectToAction("ReservationList", "Reservation");
+            return View(review);
         }
 
     }

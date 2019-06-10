@@ -19,9 +19,9 @@ namespace Projektas.Controllers
             }
             
         }
-        public ActionResult SendMessage(string ID)
+        public ActionResult SendMessage(string ID, string LogedInUser)
         {
-            return RedirectToAction("Create", "Message", new {id = ID});
+            return RedirectToAction("Create", "Message", new {id = ID, logedInUser = LogedInUser });
         }
         public ActionResult BlockUser(string ID)
         {
