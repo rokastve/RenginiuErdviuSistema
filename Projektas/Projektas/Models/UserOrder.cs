@@ -16,8 +16,14 @@ namespace Projektas.Models
     {
         public UserOrder()
         {
-            this.Equipment = new HashSet<Equipment>();
-            this.FoodOrder = new HashSet<FoodOrder>();
+        }
+        public UserOrder(int code, int res)
+        {
+            this.Order_code = code;
+            this.Date = DateTime.Now;
+            this.Sum = 55;
+            this.is_Paid = false;
+            this.Reservation = res;
         }
     
         public int Order_code { get; set; }
@@ -25,10 +31,12 @@ namespace Projektas.Models
         public double Sum { get; set; }
         public bool is_Paid { get; set; }
         public int Reservation { get; set; }
+
+
     
         public virtual ICollection<Equipment> Equipment { get; set; }
         public virtual ICollection<FoodOrder> FoodOrder { get; set; }
+        public virtual ICollection<EquipmentOrder> EquipmentOrder { get; set; }
         public virtual Reservation Reservation1 { get; set; }
-        public virtual EquipmentOrder EquipmentOrder { get; set; }
     }
 }

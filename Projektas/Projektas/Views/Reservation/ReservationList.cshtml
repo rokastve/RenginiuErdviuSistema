@@ -45,6 +45,7 @@
             </td>
             <td>
                 @Html.ActionLink("Leave a Review", "LeaveReview", new { id = item.ReservedSpace, logedInUser = @Session["LoginName"].ToString() }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Code }) |
                 @Html.ActionLink("Cancel", "Cancel", new { id = item.Code })
             </td>
         </tr>

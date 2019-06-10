@@ -17,6 +17,15 @@ namespace Projektas.Models
         public int Id { get; set; }
         public int Equipment { get; set; }
         public int UserOrder { get; set; }
+
+        public EquipmentOrder()
+        {
+        }
+        public EquipmentOrder(int eq, int ur)
+        {
+            this.Equipment = eq;
+            this.UserOrder = ur;
+        }
     
         public virtual Equipment Equipment1 { get; set; }
         public virtual UserOrder UserOrder1 { get; set; }
