@@ -30,7 +30,6 @@ namespace Projektas.Controllers
             return RedirectToAction("Create", "EventSpaceReview", new { id = ID, logedInUser = LogedInUser });
         }
 
-        // Get: Reservation/Cancel
         public ActionResult Cancel(int id)
         {
             Reservation reservationModel = new Reservation();
@@ -41,13 +40,13 @@ namespace Projektas.Controllers
             return View(reservationModel);
         }
 
-        // Post: Reservation/Cancel
         [HttpPost]
         public ActionResult Cancel(int id, FormCollection collection)
         {
             using (DBEntities db = new DBEntities())
             {
                 Reservation reservationModel = db.Reservation.Where(x => x.Code == id).FirstOrDefault();
+                
                 db.Reservation.Remove(reservationModel);
                 db.SaveChanges();
             }

@@ -39,30 +39,6 @@
     </dl>
 
 </div>
-<div>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Reserver)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservedSpace)
-            </td>
-        </tr>
-    }
-
-</div>
 <p>
     @Html.ActionLink("Back to List", "ReservationList")
 </p>
